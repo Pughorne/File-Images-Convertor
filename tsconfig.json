@@ -1,0 +1,17 @@
+{
+  "extends": "./node_modules/gts/tsconfig-google.json",
+  "ts-node": {"require": ["tsconfig-paths/register"]},
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "build",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "baseUrl": "",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  }
+}
