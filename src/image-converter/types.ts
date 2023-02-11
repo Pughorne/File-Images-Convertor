@@ -4,15 +4,17 @@ export interface InputImage {
   options: {
     targetFormat: string;
     quality?: number;
-  }
+  };
 }
 
 export enum ImageStatus {
   CONVERTED = 'CONVERTED',
   UNCONVERTED = 'UNCONVERTED',
   NOT_FOUND = 'NOT_FOUND',
-  ERROR = 'ERROR'
+  ERROR = 'ERROR',
 }
 
-export interface OutputImage {status: ImageStatus, filepath?: string}
-
+export interface OutputImage {
+  status: ImageStatus;
+  filepath?: string;
+}
