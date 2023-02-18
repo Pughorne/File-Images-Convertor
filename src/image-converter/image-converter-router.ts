@@ -3,9 +3,22 @@ import {ImageStatus} from '@/image-converter/types';
 import {imageUploadMiddleware} from '@/upload';
 import express from 'express';
 import Joi from 'joi';
+import {z} from 'zod';
 const validator = require('express-joi-validation').createValidator({});
 
 const imageConverterRouter = express.Router();
+
+const postSchema = z.object({
+  body: z.object({
+    quality: z.string({
+      required_error: 'Full name is required',
+    }),
+    targetFormat: z.string({
+      required_error: 'Target Format is required',
+    }),
+    lossless: z.boolean().optional(),
+  }),
+});
 
 imageConverterRouter.post(
   '/upload',

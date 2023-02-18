@@ -6,7 +6,7 @@ import path from 'node:path';
 
 const newImagePath = (imageInputPath, imageOutputDir, extension) => {
   const basename = path.basename(imageInputPath, path.extname(imageInputPath));
-  return path.join(path.resolve(imageOutputDir), `${basename}.${extension}`);
+  return path.join(process.cwd(), `${basename}.${extension}`);
 };
 
 const createImagesQueue = (outputDir: string) => {
@@ -15,7 +15,7 @@ const createImagesQueue = (outputDir: string) => {
 
   const runConverter = () => {
     setTimeout(async () => {
-      const imagesIDs = Array.from(unconvertedImages.keys()).slice(0, 2);
+      const imagesIDs = Array.from(unconvertedImages.keys()).slice(0, 3);
       for (const imageID of imagesIDs) {
         const image = unconvertedImages.get(imageID)!;
         const imageStatus = await imageConverter(image);

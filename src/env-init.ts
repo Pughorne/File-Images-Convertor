@@ -14,10 +14,12 @@ const envValidationSchema = z
   .optional();
 
 const envInit = () => {
-  const errorMessage = envValidationSchema.parse(process.env);
-  // if (errorMessage) {
-  //   throw new Error(`${errorMessage}`);
-  // }
+  const errorMessage = envValidationSchema.safeParse(process.env);
+
+  /* Throwing an error if the environment variables are not set. */
+  if (!errorMessage.success) {
+    throw new Error(`${errorMessage.error}`);
+  }
 
   const uploadedFilesDir = process.env.UPLOADED_IMAGES_DIR!;
   if (!existsSync(uploadedFilesDir)) {

@@ -5,6 +5,7 @@ import multer from 'multer';
 const BYTES_IN_MB = 1048576;
 const FILE_SIZE_LIMIT = BYTES_IN_MB * 50;
 
+process.cwd();
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     return cb(null, UPLOADED_IMAGES_DIR!);

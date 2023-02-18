@@ -1,4 +1,4 @@
-import {InputImage, ImageStatus, OutputImage} from '@/image-converter/types';
+import {InputImage, ImageStatus} from '@/image-converter/types';
 import path from 'node:path';
 import sharp from 'sharp';
 
